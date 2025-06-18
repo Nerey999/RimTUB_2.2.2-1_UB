@@ -1,0 +1,19 @@
+module_name: Hello
+
+version: 1.0.0
+native_RimTUB_version: 2.2
+available_RimTUB_versions:
+    - 2.2
+
+description: |
+    Модуль для говорения "ПРИВЕЕЕТ!!!"
+
+author: RimTUB_Docs example (@RimMirK)
+
+
+sections:
+    _:
+        commands:
+            - names: [hello]
+              description: Сказать "ПРИВЕЕЕТ!!!"
+
