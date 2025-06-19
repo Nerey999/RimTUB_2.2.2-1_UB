@@ -1,0 +1,22 @@
+module_name: BFG_AutoFuel
+version: 0.0.1
+native_RimTUB_version: 2.2.2-1
+available_RimTUB_versions:
+    - 2.2.2-1
+online_check_RimTUB_versions: off
+
+description: |
+    Автоматическое пополнение бензина в BFGB
+
+author: "@Nerey999"
+
+sections:
+    _:
+        description:
+        commands:
+            - names: [autofuel]
+              arguments: ~
+              description: Запустить/Остановить пополнение бензина
+        features: ~
+
+requirements: ~
