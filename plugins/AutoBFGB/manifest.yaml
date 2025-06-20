@@ -1,12 +1,12 @@
-module_name: BFG_AutoFuel
-version: 0.0.1
+module_name: AutoBFGB
+version: 0.0.2
 native_RimTUB_version: 2.2.2-1
 available_RimTUB_versions:
     - 2.2.2-1
 online_check_RimTUB_versions: off
 
 description: |
-    Автоматическое пополнение бензина в BFGB
+    Автоматизирование BFGB
 
 author: "@Nerey999"
 
@@ -17,6 +17,10 @@ sections:
             - names: [autofuel]
               arguments: ~
               description: Запустить/Остановить пополнение бензина
+            - names: [autopeople]
+              arguments:
+                - {text: до скольки людей в бункере впускать, req: No}
+              description: Запустить/Остановить автоатический запуск людей
         features: ~
 
 requirements: ~
