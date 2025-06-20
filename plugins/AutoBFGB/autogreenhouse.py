@@ -60,7 +60,7 @@ async def greenhouse_worker(app: Client, mod: Module):
                 if not await mod.db.get('autogreenhouse_enabled'):
                     await mod.db.remove('autogreenhouse_get_text')
                     return
-            continue
+            await asyncio.sleep(180)
         
         await app.send_message(chat_id=chat_id, text=f"{await mod.db.get('autogreenhouse_get_text')}")
         mod.logger.info("Выращиваем в теплице по таймеру")
