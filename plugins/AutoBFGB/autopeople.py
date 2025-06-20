@@ -42,7 +42,7 @@ async def people_worker(app: Client, mod: Module):
         except ListenerTimeout:
             await app.bot.send_message(app.me.id, text=f"Autopeople выключен{Emojis.X}")
             await mod.db.set('autofuel_enabled', False)
-            return
+            break
         await asyncio.sleep(2)
         
         stats = await parse_bunker_stats(response.text)
@@ -53,7 +53,7 @@ async def people_worker(app: Client, mod: Module):
                 await app.send_message(chat_id=chat_id, text=f"Впустить {max_people - stats['in_bunker']}")
             await app.bot.send_message(app.me.id, text=f"Autopeople выключен{Emojis.X}")
             await mod.db.set('autopeople_enabled', False)
-            return
+            continue
         
         if stats['in_queue'] != 0:
             await app.send_message(chat_id=chat_id, text=f"Впустить {stats['in_queue']}")

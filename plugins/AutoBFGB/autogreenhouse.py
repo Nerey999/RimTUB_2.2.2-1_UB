@@ -32,7 +32,7 @@ async def greenhouse_worker(app: Client, mod: Module):
     while True:
         if not await mod.db.get('autogreenhouse_enabled'):
             await mod.db.remove('autogreenhouse_get_text')
-            return
+            break
         await asyncio.sleep(0.1)
         
         if not await mod.db.get('autogreenhouse_get_text', False):
@@ -46,7 +46,7 @@ async def greenhouse_worker(app: Client, mod: Module):
                 await app.bot.send_message(app.me.id, text=f"Autogreenhouse выключен{Emojis.X}")
                 await mod.db.remove('autogreenhouse_get_text')
                 await mod.db.set('autogreenhouse_enabled', False)
-                return
+                break
             await mod.db.set('autogreenhouse_get_text', "вырастить " + await get_answer(response.text))
             await asyncio.sleep(2)
             
@@ -60,7 +60,6 @@ async def greenhouse_worker(app: Client, mod: Module):
                 if not await mod.db.get('autogreenhouse_enabled'):
                     await mod.db.remove('autogreenhouse_get_text')
                     return
-            return
         
         await app.send_message(chat_id=chat_id, text=f"{await mod.db.get('autogreenhouse_get_text')}")
         mod.logger.info("Выращиваем в теплице по таймеру")

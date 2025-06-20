@@ -24,7 +24,7 @@ async def fuel_worker(app: Client, mod: Module):
         except ListenerTimeout:
             await app.bot.send_message(app.me.id, text=f"Autofuel выключен{Emojis.X}")
             await mod.db.set('autofuel_enabled', False)
-            return
+            break
         
         max_attempts = 3
         for attempt in range(max_attempts):
