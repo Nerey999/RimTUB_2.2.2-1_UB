@@ -1,5 +1,5 @@
 module_name: AutoBFGB
-version: 0.0.2
+version: 0.1.0
 native_RimTUB_version: 2.2.2-1
 available_RimTUB_versions:
     - 2.2.2-1
@@ -21,6 +21,10 @@ sections:
               arguments:
                 - {text: -p до скольки людей в бункере впускать, req: No}
               description: Запустить/Остановить автоатический запуск людей
+              
+            - names: [autogreenhouse]
+              arguments: ~
+              description: Запустить/Остановить автоматическое выращивание
             - names: [autocheck]
               arguments: ~
               description: Написать что запущено и что нет

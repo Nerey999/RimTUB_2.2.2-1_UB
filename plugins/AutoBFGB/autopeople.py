@@ -57,6 +57,7 @@ async def people_worker(app: Client, mod: Module):
         
         if stats['in_queue'] != 0:
             await app.send_message(chat_id=chat_id, text=f"Впустить {stats['in_queue']}")
+            mod.logger.info("Впускаем людей по таймеру")
         await asyncio.sleep(1800)
             
         

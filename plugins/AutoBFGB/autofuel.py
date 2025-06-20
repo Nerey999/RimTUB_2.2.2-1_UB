@@ -33,4 +33,5 @@ async def fuel_worker(app: Client, mod: Module):
                 await response.click("Купить бензин")
             except:
                 pass
-        await asyncio.sleep(360)
+        mod.logger.info("Пополняем бензин по таймеру")
+        await asyncio.sleep(3200)
