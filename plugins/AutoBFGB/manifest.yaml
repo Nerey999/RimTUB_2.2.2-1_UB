@@ -19,8 +19,11 @@ sections:
               description: Запустить/Остановить пополнение бензина
             - names: [autopeople]
               arguments:
-                - {text: до скольки людей в бункере впускать, req: No}
+                - {text: -p до скольки людей в бункере впускать, req: No}
               description: Запустить/Остановить автоатический запуск людей
+            - names: [autocheck]
+              arguments: ~
+              description: Написать что запущено и что нет
         features: ~
 
 requirements: ~

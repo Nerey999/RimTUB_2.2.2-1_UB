@@ -3,6 +3,10 @@ from pyromod.exceptions import ListenerTimeout
 from pyrogram import types
 import asyncio
 
+class Emojis:
+    V = '✅'
+    X = '❌'
+
 async def fuel_worker(app: Client, mod: Module):
     chat_str_id = "@bfgbunker_bot"
     chat_id = 5813222348
@@ -13,9 +17,12 @@ async def fuel_worker(app: Client, mod: Module):
         await asyncio.sleep(0.1)
         try:
             response : types.messages_and_media.message.Message = await app.ask(
-                                        chat_id=chat_id, text='Бензин', timeout=5)
+                chat_id=chat_id, 
+                text='Бензин',
+                timeout=5
+            )
         except ListenerTimeout:
-            await app.send_message(chat_id=chat_id, text='Бот не отвечает(, поэтому автопополнение выключено')
+            await app.bot.send_message(app.me.id, text=f"Autofuel выключен{Emojis.X}")
             await mod.db.set('autofuel_enabled', False)
             return
         
